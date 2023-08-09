@@ -1,0 +1,22 @@
+<h1>Received RSVP</h1>
+<table class="table table-bordered"> 
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Attending</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rsvp of rsvpList">
+            <td>{{rsvp.name}}</td>
+            <td>{{rsvp.email}}</td>
+            <td>{{rsvp.phone}}</td>
+            <td>{{rsvp.attending}}</td>
+            <td><button class="btn btn-danger" (click)="removeRsvp(rsvp)">remove</button></td>
+            
+        </tr>
+    </tbody>
+</table>
+

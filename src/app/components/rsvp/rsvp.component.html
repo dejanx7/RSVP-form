@@ -1,0 +1,44 @@
+<h1>RSVP Form</h1>
+<form action="" [formGroup]="rsvpForm">
+  Name: <input type="text" class="text" name="name" formControlName="name" />
+
+  <div *ngIf="rsvpForm.get('name').hasError('required')" style="color: red;">
+    Please enter your name
+  </div>
+
+  <br /><br />
+
+  Email:
+  <input type="text" class="text" name="email" formControlName="email" />
+
+  <div *ngIf="rsvpForm.get('email').hasError('email')" style="color: red;">
+    Please enter a valid email
+  </div>
+  
+  <div *ngIf="rsvpForm.get('email').hasError('required')" style="color: red;">
+    Please enter your email
+  </div>
+
+  <br /><br />
+
+  Phone:
+  <input type="text" class="text" name="phone" formControlName="phone" />
+
+  <div *ngIf="rsvpForm.get('phone').hasError('required')" style="color: red;">
+    Please enter your phone number
+  </div>
+
+  <br /><br />
+
+  Attending:
+  <input type="radio" name="attending" value="yes" formControlName="attending"/>YES
+  <input type="radio" name="attending" value="no" formControlName="attending"/>NO 
+
+  <div *ngIf="rsvpForm.get('attending').hasError('required')" style="color: red;">
+    Please choose an option
+  </div>
+
+  <br /><br />
+
+  <button type="submit" (click)="addRsvp()" [disabled]="rsvpForm.invalid">Send</button>
+</form>
